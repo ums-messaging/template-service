@@ -1,3 +1,7 @@
+server:
+  #  port: ${PORT:8000}
+  port: 0
+
 spring:
   application:
     name: template-service
@@ -23,3 +27,16 @@ spring:
         show_sql: true
         generate-ddl: true
       path: /h2-console
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    ip-address: ${host_ip:localhost}
+    hostname: ${host_ip:localhsot}
+    instance-id: ${spring.application.name}:${host_ip:localhost}:${random.value}
+    non-secure-port: ${server.port}
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka/
