@@ -7,7 +7,7 @@ pipeline {
         REGISTRY = "registry.ums.local:5000"
         APP_NAME = "template-service"
         IMAGE_TAG = "${env.BUILD_NUMBER}"
-        GIT_BRANCH = "${env.BRANCH_NAME ?: 'main'}"
+        GIT_BRANCH = "${env.BRANCH_NAME ?: 'master'}"
         SPRING_PROFILES_ACTIVE = 'test'
         KAFKA_PORT = '9092'
     }
@@ -16,7 +16,7 @@ pipeline {
         stage('Checkout Eureka Server') {
             steps {
                  script {
-                    def branch = env.BRANCH_NAME ?: 'main'
+                    def branch = env.BRANCH_NAME ?: 'master'
                     sshagent(['git']) {
                          sh """
                             if [ ! -d .git ]; then
