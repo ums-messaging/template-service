@@ -38,7 +38,7 @@ pipeline {
             steps {
                 sh '''
                     chmod +x gradlew
-                    ./gradlew clean test
+                    ./gradlew clean test --info --stacktrace
                 '''
             }
             post {
