@@ -38,7 +38,7 @@ pipeline {
             steps {
                 sh '''
                     chmod +x gradlew
-                    ./gradlew clean test
+                    ./gradlew clean test --no-daemon
                 '''
             }
             post {
@@ -53,7 +53,7 @@ pipeline {
                 script {
                     sh 'nohup aws ssm start-session --target i-00464ff35252824cb --document-name AWS-StartPortForwardingSession --parameters "portNumber=8081,localPortNumber=8081" > ~/ssm-session.log 2>&1 &'
                     sh 'chmod +x gradlew'
-                    sh './gradlew build --refresh-dependencies'
+                    sh './gradlew build --refresh-dependencies --no-daemon'
                 }
             }
         }
