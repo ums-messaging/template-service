@@ -17,7 +17,7 @@ apply plugin: 'io.spring.dependency-management'
 
 group = 'com.ums'
 version = '0.0.1-SNAPSHOT'
-description = 'template-serivce'
+description = 'template-service'
 
 java {
     toolchain {
