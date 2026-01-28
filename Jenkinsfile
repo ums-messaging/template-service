@@ -80,7 +80,7 @@ pipeline {
                             --comment "Deploy ${APP_NAME}" \
                             --parameters '{"commands" : [
                                "docker login ${REGISTRY} --username jang314 --password jang314",
-                               "cd /data/schedule-service",
+                               "cd /data/template-service",
                                "export HOST_IP=\$(hostname -i)",
                                "export IMAGE_TAG=${IMAGE_TAG}",
                                "docker stop ${APP_NAME} || true",
